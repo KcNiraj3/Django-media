@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>media_django</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload your image</h1>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+
+        <hr>
+
+        <h2>Uploaded Images</h2>
+        {% for image in images %}
+            <img src="{{ image.image.url }}" alt="{{ image.image.name }}" style="max-width: 300px; margin: 10px">
+        {% endfor %}
+    </div>
+</body>
+</html>
