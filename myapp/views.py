@@ -11,6 +11,7 @@ def upload_image(request):
         if form.is_valid():
             print("Form is valid")
             form.save()
+            return redirect("upload_image")  # 🔹 Redirect to upload page to prevent duplicate submission
             print("Image saved")
         else:
             print("Form errors:", form.errors)
